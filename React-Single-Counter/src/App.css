@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+}
+
+div {
+    margin: 2rem;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+button {
+    margin: 1rem;
+    padding: 1rem;
+}
+
+#button {
+    margin: -2rem;   
+    margin-bottom: 2rem;
+}
