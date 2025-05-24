@@ -10,9 +10,9 @@ const GoogleAuth = ({ setIsLoggedIn }) => {
     
     const result = await signInWithPopup(auth, provider);
   
-    const userEmail = result.user.email;
-    console.log(userEmail);
-    localStorage.setItem("userEmail", userEmail);
+    const userName = result.user.displayName;
+    console.log(userName);
+    localStorage.setItem("userName", userName);
 
 
     setIsLoggedIn(true);

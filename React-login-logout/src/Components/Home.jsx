@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 
 function Home({ setIsLoggedIn }) {
 
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  
+
+  const [name, setName] = useState("");
   useEffect(() => {
-    const storedEmail = localStorage.getItem("userEmail");
-    if (storedEmail) {
-      setEmail(storedEmail);
+    const storedName = localStorage.getItem("userName");
+    if (storedName) {
+      setName(storedName);
     }
   }, []);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await signOut(auth);
+    localStorage.clear();
     setIsLoggedIn(false);
     navigate("/login");
     console.log("User logged out");
@@ -21,7 +25,7 @@ function Home({ setIsLoggedIn }) {
 
   return (
     <div>
-      {email ? <p>Welcome, {email}</p> : <p>Home Page</p>}
+      {name ? <p>Welcome, {name}</p> : <p>Home Page</p>}
       <button onClick={handleLogout}>Logout</button>
     </div>
   );
