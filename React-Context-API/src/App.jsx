@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { createContext, useState } from "react";
+import ThemeToggle from "./Components/ThemeToggle";
+import FlipClock from "./Components/FlipClock";
+
+export const ContextAPI = createContext();
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isDark, setIsDark] = useState(true);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <ContextAPI.Provider value={{ isDark, setIsDark }}>
+      <div
+        className={`${
+          isDark ? "light" : "dark"
+        } h-[100vh] w-[100vw] flex justify-center items-center outline-1 outline-red-500 transition-all duration-500`}
+      >
+              <ThemeToggle />
+              <FlipClock />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </ContextAPI.Provider>
+  );
 }
 
-export default App
+export default App;

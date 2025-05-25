@@ -1,3 +1,15 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'digital-black';
+  src: url('../FLIPclockblack.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'digital-white';
+  src: url('../FLIPclockwhite.ttf') format('truetype');
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -25,6 +37,8 @@ a:hover {
 body {
   margin: 0;
   display: flex;
+  align-items: center;
+  justify-content: center;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -36,22 +50,21 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  box-shadow: 0px 1px 5px lightblue;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #dddef7;
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 0px auto whitesmoke;
 }
 
 @media (prefers-color-scheme: light) {
@@ -65,4 +78,22 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.light {
+  color: #242424;
+  background-color: #ffffff;
+}
+
+.dark {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+.custom-shadow {
+  box-shadow: 0px 1px 5px lightblue;
+}
+
+.custom-font {
+  font-family: 'digital-clock-font';
 }
